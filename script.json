@@ -1,0 +1,40 @@
+{
+  "intentInputTypes": [],
+  "localizedNames": {
+    "zh": "",
+    "ja": "",
+    "de": "",
+    "es": "",
+    "pt": "",
+    "ru": "",
+    "en": "",
+    "it": "",
+    "fr": ""
+  },
+  "permissions": null,
+  "color": "rgba(238, 92, 98,1)",
+  "contributors": [],
+  "description": "",
+  "runInApp": false,
+  "localizedDescriptions": {
+    "de": "",
+    "ja": "",
+    "pt": "",
+    "ru": "",
+    "it": "",
+    "fr": "",
+    "zh": "",
+    "en": "",
+    "es": ""
+  },
+  "icon": "antenna.radiowaves.left.and.right",
+  "iconImage": null,
+  "author": {
+    "homepage": null,
+    "email": null,
+    "name": "ByteValley"
+  },
+  "version": "1.0.1",
+  "name": "中國聯通",
+  "entry": "index.tsx"
+}
