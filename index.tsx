@@ -92,11 +92,11 @@ const BUILD_DATE = "2026-10-18"
 const UNICOM_BOXJS_SUB_URL =
   "http://boxjs.com/#/sub/add/https://raw.githubusercontent.com/ByteValley/NetTool/main/BoxJs/ComponentService.boxjs.json"
 const UNICOM_MODULE_URL =
-  "https://raw.githubusercontent.com/ByteValley/NetTool/main/Surge/Module/Component/ChinaUnicom.module"
+  "https://raw.githubusercontent.com/cc166/scripting-china-unicom/main/ChinaUnicom.sgmodule"
 const UNICOM_LOON_PLUGIN_URL =
-  "https://raw.githubusercontent.com/ByteValley/NetTool/main/Loon/Plugin/Component/ChinaUnicom.lpx"
+  "https://raw.githubusercontent.com/cc166/scripting-china-unicom/main/ChinaUnicom.plugin"
 const UNICOM_QX_REWRITE_URL =
-  "https://raw.githubusercontent.com/ByteValley/NetTool/refs/heads/main/QuantumultX/Rewrite/Component/ChinaUnicom.conf"
+  "https://raw.githubusercontent.com/cc166/scripting-china-unicom/main/ChinaUnicom.conf"
 
 const links: ModuleLinks = {
   boxjsSubUrl: UNICOM_BOXJS_SUB_URL,
