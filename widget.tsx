@@ -58,6 +58,23 @@ import { kv, errToString, srcLabel } from "./shared/utils/widgetKit"
  * - 常量区无日志
  * ===================================================================== */
 
+/**
+ * 从 Cookie 自动提取联通手机号
+ * - 联通 App 抓包获得的 Cookie 中通常自带 c_mobile 字段
+ * - 若未匹配到，则备用匹配 11 位中国大陆手机号
+ */
+export function extractMobileFromCookie(cookie: string): string {
+  if (!cookie) return ""
+  const match = cookie.match(/(?:^|;\s*)c_mobile=([0-9]{11})/i)
+  if (match && match[1]) return match[1]
+
+  const matches = cookie.matchAll(/(?:^|;\s*)([a-zA-Z0-9_-]+)=(1[3-9]\d{9})(?:;|$)/g)
+  for (const m of matches) {
+    if (m && m[2]) return m[2]
+  }
+  return ""
+}
+
 function buildFeeApiUrl(desmobiel: string): string {
   const mobile = String(desmobiel || "").trim()
   return `https://m.client.10010.com/mobileserviceimportant/home/queryUserInfoSeven?version=iphone_c@10.0100&desmobiel=${encodeURIComponent(mobile)}&showType=0`
@@ -693,12 +710,21 @@ async function render() {
    * 模块分类 · 网络请求（并发）
    * =================================================================== */
 
-  if (!desmobiel) {
-    presentMessage("⚠️ 请在设置中填写联通手机号", reloadPolicy)
+  let effectiveMobile = desmobiel
+  if (!effectiveMobile) {
+    effectiveMobile = extractMobileFromCookie(cookie)
+    if (effectiveMobile) {
+      console.log("✅ 手机号 | 从 Cookie/BoxJS 凭证自动识别成功")
+    }
+  }
+
+  if (!effectiveMobile) {
+    console.warn("⚠️ 手机号未获取：设置中未手动填写且 Cookie 中未识别出手机号")
+    presentMessage("⚠️ 未能识别联通手机号，请在设置中填写", reloadPolicy)
     return
   }
 
-  const [feeData, detailData] = await Promise.all([fetchFeeData(cookie, desmobiel), fetchDetailData(cookie)])
+  const [feeData, detailData] = await Promise.all([fetchFeeData(cookie, effectiveMobile), fetchDetailData(cookie)])
 
   if (!feeData || !detailData) {
     console.warn(`⚠️ 网络失败 | fee=${feeData ? "Y" : "N"} detail=${detailData ? "Y" : "N"}`)

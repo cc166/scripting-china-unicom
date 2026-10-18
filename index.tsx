@@ -73,8 +73,8 @@ declare const Dialog: any
  * - 常量区无日志
  * ===================================================================== */
 
-const VERSION = "1.0.0"
-const BUILD_DATE = "2025-12-20"
+const VERSION = "1.0.2"
+const BUILD_DATE = "2026-10-18"
 
 /* =====================================================================
  * 模块分类 · BoxJS / 模块链接
@@ -371,12 +371,19 @@ function SettingsView() {
           {enableBoxJs ? <TextField title="BoxJs 地址" value={boxJsUrl} onChanged={setBoxJsUrl} /> : null}
         </Section>
 
-        <Section header={<Text font="body" fontWeight="semibold">登录凭证</Text>}>
-          <TextField title="Cookie" value={cookie} prompt="在此处粘贴联通 App 的 Cookie" onChanged={setCookie} />
+        <Section
+          header={<Text font="body" fontWeight="semibold">登录凭证</Text>}
+          footer={
+            <Text font="caption2" foregroundStyle="secondaryLabel">
+              手机号默认从 BoxJS / Cookie 凭证（c_mobile 字段）中自动识别提取，通常无需手动填写；多账号或特殊情况可在此手动填写覆盖。
+            </Text>
+          }
+        >
+          <TextField title="Cookie" value={cookie} prompt="可选：通过 BoxJS 自动读取或在此手动粘贴" onChanged={setCookie} />
           <TextField
             title="手机号"
             value={desmobiel}
-            prompt="联通手机号（仅保存在本机，不写入公开仓库）"
+            prompt="可选：默认从 Cookie 自动提取"
             onChanged={setDesmobiel}
           />
         </Section>
