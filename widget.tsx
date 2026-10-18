@@ -411,7 +411,15 @@ async function fetchFeeData(cookie: string, desmobiel: string): Promise<FeeData 
       return null
     }
 
-    const data = await response.json()
+    const text = await response.text()
+    let data: any
+    try {
+      data = JSON.parse(text)
+    } catch {
+      console.warn(`⚠️ 请求 | 话费返回非 JSON（Cookie 可能已过期）`)
+      return null
+    }
+
     if (data.code !== "Y") {
       console.warn(`⚠️ 请求 | 话费返回非成功：code=${data.code}`)
       return null
@@ -448,7 +456,15 @@ async function fetchDetailData(cookie: string): Promise<DetailApiResponse | null
       return null
     }
 
-    const data = (await response.json()) as DetailApiResponse
+    const text = await response.text()
+    let data: DetailApiResponse
+    try {
+      data = JSON.parse(text) as DetailApiResponse
+    } catch {
+      console.warn(`⚠️ 请求 | 详情返回非 JSON（Cookie 可能已过期）`)
+      return null
+    }
+
     const ok = data.code === "0000" || data.code === "Y"
 
     console.log(
