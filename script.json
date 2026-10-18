@@ -1,40 +1,49 @@
 {
-  "intentInputTypes": [],
-  "localizedNames": {
-    "zh": "",
-    "ja": "",
-    "de": "",
-    "es": "",
-    "pt": "",
-    "ru": "",
-    "en": "",
-    "it": "",
-    "fr": ""
+  "runInApp" : false,
+  "icon" : "antenna.radiowaves.left.and.right",
+  "description" : "",
+  "intentInputTypes" : [
+
+  ],
+  "author" : {
+    "name" : "ByteValley",
+    "email" : null,
+    "homepage" : null
   },
-  "permissions": null,
-  "color": "rgba(238, 92, 98,1)",
-  "contributors": [],
-  "description": "",
-  "runInApp": false,
-  "localizedDescriptions": {
-    "de": "",
-    "ja": "",
-    "pt": "",
-    "ru": "",
-    "it": "",
-    "fr": "",
-    "zh": "",
-    "en": "",
-    "es": ""
+  "contributors" : [
+
+  ],
+  "name" : "中國聯通",
+  "iconImage" : null,
+  "entry" : "index.tsx",
+  "version" : "1.0.2",
+  "localizedNames" : {
+    "ja" : "",
+    "ru" : "",
+    "it" : "",
+    "zh" : "",
+    "fr" : "",
+    "de" : "",
+    "pt" : "",
+    "es" : "",
+    "en" : ""
   },
-  "icon": "antenna.radiowaves.left.and.right",
-  "iconImage": null,
-  "author": {
-    "homepage": null,
-    "email": null,
-    "name": "ByteValley"
+  "permissions" : null,
+  "color" : "rgba(238, 92, 98,1)",
+  "remoteResource" : {
+    "url" : "https:\/\/github.com\/cc166\/scripting-china-unicom",
+    "hash" : "0b5fb5b8eb02656a785ccdb54f5691c1",
+    "autoUpdateInterval" : null
   },
-  "version": "1.0.2",
-  "name": "中國聯通",
-  "entry": "index.tsx"
+  "localizedDescriptions" : {
+    "es" : "",
+    "en" : "",
+    "de" : "",
+    "it" : "",
+    "fr" : "",
+    "zh" : "",
+    "ru" : "",
+    "ja" : "",
+    "pt" : ""
+  }
 }
