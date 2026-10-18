@@ -1,0 +1,10 @@
+#!name = 中国联通组件服务（本地修正）
+#!desc = 获取中国联通 Cookie 写入 BoxJS ComponentService
+#!author = ByteValley & cc166
+#!tag = 组件服务
+
+[Script]
+http-request ^https:\/\/m\.client\.10010\.com\/(mobileserviceimportant\/home\/queryUserInfoSeven|servicequerybusiness\/operationservice\/queryOcsPackageFlowLeftContent|.*\/smartwisdomCommon) tag=联通组件, script-path=https://raw.githubusercontent.com/ByteValley/NetTool/main/Scripts/Component/ChinaUnicom.js, timeout=60
+
+[Mitm]
+hostname = m.client.10010.com
